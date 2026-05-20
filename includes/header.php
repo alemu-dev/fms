@@ -57,11 +57,20 @@ if (!isset($user)) $user = currentUser();
 
             <?php if (in_array($user['role'], ['admin','manager'])): ?>
             <div class="nav-section-label">Administration</div>
-            <a href="users.php"     class="nav-item <?= basename($_SERVER['PHP_SELF']) === 'users.php'     ? 'active' : '' ?>">
+            <a href="users.php"       class="nav-item <?= basename($_SERVER['PHP_SELF']) === 'users.php'       ? 'active' : '' ?>">
                 <span class="nav-icon">👥</span> Users
             </a>
-            <a href="audit_log.php" class="nav-item <?= basename($_SERVER['PHP_SELF']) === 'audit_log.php' ? 'active' : '' ?>">
+            <a href="departments.php" class="nav-item <?= basename($_SERVER['PHP_SELF']) === 'departments.php' ? 'active' : '' ?>">
+                <span class="nav-icon">🏢</span> Departments
+            </a>
+            <a href="categories.php"  class="nav-item <?= basename($_SERVER['PHP_SELF']) === 'categories.php'  ? 'active' : '' ?>">
+                <span class="nav-icon">🗂️</span> Categories
+            </a>
+            <a href="audit_log.php"   class="nav-item <?= basename($_SERVER['PHP_SELF']) === 'audit_log.php'   ? 'active' : '' ?>">
                 <span class="nav-icon">📋</span> Audit Log
+            </a>
+            <a href="reports.php"     class="nav-item <?= basename($_SERVER['PHP_SELF']) === 'reports.php'     ? 'active' : '' ?>">
+                <span class="nav-icon">📊</span> Reports
             </a>
             <?php endif; ?>
         </nav>
@@ -75,6 +84,7 @@ if (!isset($user)) $user = currentUser();
                     <div class="user-role"><?= strtoupper($user['role'] ?? 'STAFF') ?></div>
                 </div>
             </div>
+            <a href="profile.php" class="nav-item" style="border-left:none;padding:6px 8px;" title="My Profile">👤</a>
             <a href="logout.php" class="btn-logout" title="Sign out">⏻</a>
         </div>
     </aside>

@@ -76,6 +76,9 @@ include 'includes/header.php';
     <div>
         <?php if (in_array($user['role'], ['admin','manager']) || $file['created_by'] == $user['id'] || $file['assigned_to'] == $user['id']): ?>
         <a href="files_edit.php?id=<?= $id ?>" class="btn btn-primary">Edit</a>
+        <?php if (in_array($user['role'], ['admin','manager'])): ?>
+        <a href="file_transfer.php?id=<?= $id ?>" class="btn btn-outline">⇄ Transfer</a>
+        <?php endif; ?>
         <?php endif; ?>
         <a href="files_list.php" class="btn btn-outline">← Back</a>
     </div>
